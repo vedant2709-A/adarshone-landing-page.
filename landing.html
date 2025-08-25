@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdarshOne - Engineering the Future of Intelligence</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        /* ===== CSS RESET AND BASE STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #F9FAFB;
+            background: linear-gradient(135deg, #111827 0%, #1F2937 100%);
+            overflow-x: hidden;
+        }
+        
+        /* ===== HEADER & NAVIGATION ===== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            background: rgba(17, 24, 39, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .header.scrolled {
+            background: rgba(17, 24, 39, 0.95);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .logo-img {
+            height: 90px; /* Adjust based on your logo's proportions */
+            width: auto;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: #F9FAFB;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: #6366F1;
+            transform: translateY(-2px);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(45deg, #6366F1, #8B5CF6);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+        
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #F9FAFB;
+            transition: all 0.3s ease;
+        }
+        
+        /* ===== HERO SECTION ===== */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(135deg, #111827 0%, #1F2937 100%);
+            overflow: hidden;
+        }
+        
+        /* Animated Background Particles */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .particle {
+            position: absolute;
+            background: linear-gradient(45deg, #6366F1, #8B5CF6);
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: float 20s infinite linear;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.1;
+            }
+            90% {
+                opacity: 0.1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            z-index: 2;
+            position: relative;
+            padding: 0 2rem;
+        }
+        
+        .hero h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, #F9FAFB, #6366F1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            margin-bottom: 2.5rem;
+            color: #D1D5DB;
+            font-weight: 300;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 15px 35px;
+            background: linear-gradient(45deg, #6366F1, #8B5CF6);
+            color: #F9FAFB;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .cta-button:hover::before {
+            left: 100%;
+        }
+        
+        /* ===== MAIN CONTENT SECTIONS ===== */
+        .section {
+            padding: 100px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+        
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #F9FAFB, #6366F1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* ===== ABOUT SECTION ===== */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .about-text h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #6366F1;
+        }
+        
+        .about-text p {
+            font-size: 1.1rem;
+            color: #D1D5DB;
+            line-height: 1.8;
+        }
+        
+        .about-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 300px;
+            background: linear-gradient(45deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+            border-radius: 20px;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-visual::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(99, 102, 241, 0.1), transparent);
+            animation: rotate 10s linear infinite;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .about-visual i {
+            font-size: 4rem;
+            color: #6366F1;
+            z-index: 2;
+            position: relative;
+        }
+        
+        /* ===== PRODUCTS SECTION ===== */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .product-card {
+            background: rgba(31, 41, 55, 0.8);
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(99, 102, 241, 0.05), rgba(139, 92, 246, 0.05));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
+            border-color: #6366F1;
+        }
+        
+        .product-card:hover::before {
+            opacity: 1;
+        }
+        
+        .product-badge {
+            display: inline-block;
+            padding: 6px 15px;
+            background: linear-gradient(45deg, #6366F1, #8B5CF6);
+            color: #F9FAFB;
+            border-radius: 25px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            animation: pulse 2s infinite;
+        }
+        
+        .coming-soon-badge {
+            background: rgba(107, 114, 128, 0.3);
+            color: #D1D5DB;
+            animation: none;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .product-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #F9FAFB;
+        }
+        
+        .product-card p {
+            color: #D1D5DB;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+        
+        .learn-more-btn {
+            display: inline-block;
+            color: #6366F1;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .learn-more-btn:hover {
+            color: #8B5CF6;
+            transform: translateX(5px);
+        }
+        
+        .learn-more-btn::after {
+            content: ' →';
+            transition: transform 0.3s ease;
+        }
+        
+        .learn-more-btn:hover::after {
+            transform: translateX(5px);
+        }
+        
+        .learn-more-btn.disabled {
+            color: #6B7280;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+        
+        /* ===== FOOTER ===== */
+        .footer {
+            background: rgba(17, 24, 39, 0.9);
+            border-top: 1px solid rgba(99, 102, 241, 0.2);
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 50%;
+            color: #6366F1;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .social-links a:hover {
+            background: #6366F1;
+            color: #F9FAFB;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+        }
+        
+        .copyright {
+            color: #9CA3AF;
+            font-size: 0.9rem;
+        }
+        
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .social-links {
+                gap: 1rem;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header {
+                padding: 1rem;
+            }
+            
+            .logo-img {
+                height: 42px; /* Slightly smaller logo on mobile */
+            }
+            
+            .hero-content {
+                padding: 0 1rem;
+            }
+            
+            .section {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            .product-card {
+                padding: 2rem;
+            }
+        }
+        
+        /* ===== SCROLL ANIMATIONS ===== */
+        [data-aos] {
+            opacity: 0;
+            transition-property: opacity, transform;
+        }
+        
+        [data-aos].aos-animate {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ===== HEADER & NAVIGATION ===== -->
+    <header class="header" id="header">
+        <nav class="nav">
+            <a href="#" class="logo">
+                <!-- Replace with your actual logo path -->
+                <img src="C:\Users\thaka\OneDrive\Desktop\landing page\company.png" alt="AdarshOne Logo" class="logo-img">
+            </a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero" id="hero">
+        <!-- Animated Background Particles -->
+        <div class="particles" id="particles"></div>
+        
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+            <h1>Engineering the Future of Intelligence</h1>
+            <p>We build intelligent solutions that simplify complexity and empower human potential.</p>
+            <a href="#products" class="cta-button">Explore Our Solutions</a>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT SECTION ===== -->
+    <section class="section" id="about">
+        <h2 class="section-title" data-aos="fade-up">About AdarshOne</h2>
+        <div class="about-content">
+            <div class="about-text" data-aos="fade-right" data-aos-delay="200">
+                <h3>Who We Are</h3>
+                <p>Adarsh One represents the convergence of innovation and intelligence. We are dedicated to developing cutting-edge solutions that bridge the gap between complex technology and human creativity. Our commitment to excellence drives us to create tools that not only solve today's challenges but anticipate tomorrow's opportunities.</p>
+            </div>
+            <div class="about-visual" data-aos="fade-left" data-aos-delay="400">
+                <img src="C:\Users\thaka\OneDrive\Desktop\landing page\company.png" alt="AI Illustration" style="max-width: 100%; max-height: 100%;">
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PRODUCTS SECTION ===== -->
+    <section class="section" id="products">
+        <h2 class="section-title" data-aos="fade-up">Our Growing Ecosystem of Solutions</h2>
+        <div class="products-grid">
+            <!-- Product Card 1: Adarsh One AI -->
+            <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+                <span class="product-badge">🚀 Launching Soon</span>
+                <h3>Adarsh One AI</h3>
+                <p>A suite of advanced AI-powered tools designed to enhance creativity and productivity for creators, developers, and businesses. Experience the future of intelligent automation and innovation.</p>
+                <a href="product.html" class="learn-more-btn">Learn More</a>
+            </div>
+            
+            <!-- Product Card 2: Future Product Template -->
+            <div class="product-card" data-aos="fade-up" data-aos-delay="400">
+                <span class="product-badge coming-soon-badge">Coming Soon</span>
+                <h3>Project Nova</h3>
+                <p>A revolutionary new solution is currently in development. This innovative platform will redefine how businesses approach complex challenges. Stay tuned for updates on this exciting venture.</p>
+                <a href="#" class="learn-more-btn disabled">Coming Soon</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer" id="contact">
+        <div class="footer-content">
+            <div class="social-links" data-aos="fade-up" data-aos-delay="200">
+                <a href="https://www.instagram.com/adarshai.in?igsh=ejgwOTVxMzh3a2Vs" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p>Privacy Policy <a href="Privacy Policy.txt">View Policy</a></p>
+            <p class="copyright" data-aos="fade-up" data-aos-delay="400">
+                © 2025 Adarsh One. All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <!-- AOS Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <script>
+        // ===== INITIALIZATION =====
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize AOS (Animate On Scroll)
+            AOS.init({
+                duration: 800,
+                easing: 'ease-out',
+                once: true,
+                offset: 100
+            });
+            
+            // Initialize all interactive features
+            initSmoothScrolling();
+            initHeaderScrollEffect();
+            initParticleAnimation();
+            initMobileMenu();
+        });
+        
+        // ===== SMOOTH SCROLLING NAVIGATION =====
+        function initSmoothScrolling() {
+            const navLinks = document.querySelectorAll('.nav-links a, .cta-button');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    
+                    // Only handle internal links (starting with #)
+                    if (href.startsWith('#') && href !== '#') {
+                        e.preventDefault();
+                        const targetId = href.substring(1);
+                        const targetElement = document.getElementById(targetId);
+                        
+                        if (targetElement) {
+                            const headerHeight = document.querySelector('.header').offsetHeight;
+                            const targetPosition = targetElement.offsetTop - headerHeight;
+                            
+                            window.scrollTo({
+                                top: targetPosition,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+        }
+        
+        // ===== HEADER SCROLL EFFECT =====
+        function initHeaderScrollEffect() {
+            const header = document.getElementById('header');
+            let lastScrollY = window.scrollY;
+            
+            window.addEventListener('scroll', () => {
+                const currentScrollY = window.scrollY;
+                
+                // Add scrolled class for background effect
+                if (currentScrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+                
+                lastScrollY = currentScrollY;
+            });
+        }
+        
+        // ===== ANIMATED PARTICLES BACKGROUND =====
+        function initParticleAnimation() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+            
+            // Create particles
+            for (let i = 0; i < particleCount; i++) {
+                createParticle();
+            }
+            
+            function createParticle() {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                // Random size between 2px and 6px
+                const size = Math.random() * 4 + 2;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                
+                // Random horizontal position
+                particle.style.left = Math.random() * 100 + '%';
+                
+                // Random animation duration between 15s and 25s
+                const duration = Math.random() * 10 + 15;
+                particle.style.animationDuration = duration + 's';
+                
+                // Random delay up to 20s
+                const delay = Math.random() * 20;
+                particle.style.animationDelay = delay + 's';
+                
+                particlesContainer.appendChild(particle);
+                
+                // Remove and recreate particle after animation completes
+                setTimeout(() => {
+                    if (particle.parentNode) {
+                        particle.remove();
+                        createParticle();
+                    }
+                }, (duration + delay) * 1000);
+            }
+        }
+        
+        // ===== MOBILE MENU TOGGLE =====
+        function initMobileMenu() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            
+            // Note: This is a basic setup. For a full mobile menu,
+            // you would need additional CSS for the mobile menu overlay
+            menuToggle.addEventListener('click', function() {
+                this.classList.toggle('active');
+                // Mobile menu implementation would go here
+                // For now, this is just the toggle button animation
+            });
+        }
+        
+        // ===== INTERSECTION OBSERVER FOR ADVANCED ANIMATIONS =====
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all product cards for additional animation effects
+        document.addEventListener('DOMContentLoaded', function() {
+            const productCards = document.querySelectorAll('.product-card');
+            productCards.forEach(card => {
+                observer.observe(card);
+            });
+        });
+        
+        // ===== PERFORMANCE OPTIMIZATION =====
+        // Throttle scroll events for better performance
+        function throttle(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+        
+        // Apply throttling to scroll events
+        window.addEventListener('scroll', throttle(() => {
+            // Scroll-based animations or effects can be added here
+        }, 16)); // ~60fps
+        
+        // ===== ACCESSIBILITY ENHANCEMENTS =====
+        // Add keyboard navigation support
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Tab') {
+                document.body.classList.add('keyboard-navigation');
+            }
+        });
+        
+        document.addEventListener('mousedown', function() {
+            document.body.classList.remove('keyboard-navigation');
+        });
+        
+        // ===== PRELOADER (OPTIONAL) =====
+        window.addEventListener('load', function() {
+            // Hide any preloader if implemented
+            document.body.classList.add('loaded');
+        });
+    </script>
+</body>
+</html>

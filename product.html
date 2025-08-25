@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adarsh One AI - Your AI Co-founder for Startup Success</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        /* ===== CSS RESET AND BASE STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #F9FAFB;
+            background: linear-gradient(135deg, #111827 0%, #1F2937 100%);
+            overflow-x: hidden;
+        }
+        
+        /* ===== HEADER & NAVIGATION ===== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            background: rgba(17, 24, 39, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .header.scrolled {
+            background: rgba(17, 24, 39, 0.95);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .logo-img {
+            height: 90px;
+            width: auto;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: #F9FAFB;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: #6366F1;
+            transform: translateY(-2px);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(45deg, #6366F1, #8B5CF6);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* ===== HERO SECTION ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(135deg, #111827 0%, #1F2937 100%);
+            overflow: hidden;
+            padding: 120px 2rem 60px;
+        }
+        
+        /* Animated Background Particles */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .particle {
+            position: absolute;
+            background: linear-gradient(45deg, #6366F1, #8B5CF6);
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: float 20s infinite linear;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.1;
+            }
+            90% {
+                opacity: 0.1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            z-index: 2;
+            position: relative;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: linear-gradient(45deg, #6366F1, #8B5CF6);
+            color: #F9FAFB;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .hero h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, #F9FAFB, #6366F1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            margin-bottom: 2rem;
+            color: #6366F1;
+            font-weight: 600;
+        }
+        
+        .hero p {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            margin-bottom: 3rem;
+            color: #D1D5DB;
+            font-weight: 300;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .waitlist-button {
+            display: inline-block;
+            padding: 18px 40px;
+            background: linear-gradient(45deg, #6366F1, #8B5CF6);
+            color: #F9FAFB;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .waitlist-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 50px rgba(99, 102, 241, 0.5);
+        }
+        
+        .waitlist-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .waitlist-button:hover::before {
+            left: 100%;
+        }
+        
+        .early-access-note {
+            font-size: 0.9rem;
+            color: #9CA3AF;
+            font-style: italic;
+        }
+        
+        /* ===== SECTIONS ===== */
+        .section {
+            padding: 100px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+        
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, #F9FAFB, #6366F1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #D1D5DB;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* ===== PROBLEM SECTION ===== */
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .problem-card {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .problem-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(239, 68, 68, 0.2);
+        }
+        
+        .problem-card i {
+            font-size: 3rem;
+            color: #EF4444;
+            margin-bottom: 1.5rem;
+        }
+        
+        .problem-card h3 {
+            font-size: 1.3rem;
+            color: #F9FAFB;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .problem-card p {
+            color: #D1D5DB;
+            line-height: 1.6;
+        }
+        
+        /* ===== SOLUTION SECTION ===== */
+        .solution-hero {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .solution-hero h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, #10B981, #6366F1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+        
+        .feature-card {
+            background: rgba(31, 41, 55, 0.8);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 20px;
+            padding: 3rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(99, 102, 241, 0.05), rgba(139, 92, 246, 0.05));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(99, 102, 241, 0.3);
+            border-color: #6366F1;
+        }
+        
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #6366F1, #8B5CF6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .feature-icon i {
+            font-size: 2rem;
+            color: #F9FAFB;
+        }
+        
+        .feature-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            color: #F9FAFB;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .feature-card p {
+            color: #D1D5DB;
+            line-height: 1.7;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* ===== HOW IT WORKS SECTION ===== */
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+        
+        .step {
+            text-align: center;
+            position: relative;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #6366F1, #8B5CF6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #F9FAFB;
+            margin: 0 auto 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .step h3 {
+            font-size: 1.3rem;
+            color: #F9FAFB;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .step p {
+            color: #D1D5DB;
+            line-height: 1.6;
+        }
+        
+        /* ===== TESTIMONIAL SECTION ===== */
+        .testimonial-card {
+            background: rgba(31, 41, 55, 0.8);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            margin: 4rem auto;
+            max-width: 800px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(99, 102, 241, 0.05), rgba(139, 92, 246, 0.05));
+        }
+        
+        .testimonial-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .quote-icon {
+            font-size: 3rem;
+            color: #6366F1;
+            margin-bottom: 2rem;
+        }
+        
+        .testimonial-text {
+            font-size: 1.2rem;
+            color: #F9FAFB;
+            font-style: italic;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+        
+        .testimonial-author {
+            color: #6366F1;
+            font-weight: 600;
+        }
+        
+        /* ===== FINAL CTA SECTION ===== */
+        .final-cta {
+            background: rgba(31, 41, 55, 0.8);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 30px;
+            padding: 4rem;
+            text-align: center;
+            margin: 4rem auto;
+            max-width: 800px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+        }
+        
+        .final-cta-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .final-cta h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, #F9FAFB, #6366F1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .final-cta p {
+            font-size: 1.1rem;
+            color: #D1D5DB;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+        
+        /* ===== FOOTER ===== */
+        .footer {
+            background: rgba(17, 24, 39, 0.9);
+            border-top: 1px solid rgba(99, 102, 241, 0.2);
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .back-home {
+            display: inline-block;
+            color: #6366F1;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .back-home:hover {
+            color: #8B5CF6;
+            transform: translateX(-5px);
+        }
+        
+        .back-home::before {
+            content: '← ';
+            transition: transform 0.3s ease;
+        }
+        
+        .back-home:hover::before {
+            transform: translateX(-5px);
+        }
+        
+        .copyright {
+            color: #9CA3AF;
+            font-size: 0.9rem;
+        }
+        
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                padding: 100px 1rem 40px;
+            }
+            
+            .section {
+                padding: 60px 0;
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            .features-grid,
+            .steps-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .final-cta {
+                padding: 3rem 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header {
+                padding: 1rem;
+            }
+            
+            .logo-img {
+                height: 42px;
+            }
+            
+            .feature-card {
+                padding: 2rem;
+            }
+            
+            .testimonial-card {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ===== HEADER & NAVIGATION ===== -->
+    <header class="header" id="header">
+        <nav class="nav">
+            <a href="landing.html" class="logo">
+                <img src="C:\Users\thaka\OneDrive\Desktop\landing page\logof.png" alt="AdarshOne Logo" class="logo-img">
+            </a>
+            <ul class="nav-links">
+                <li><a href="landing.html#about">About</a></li>
+                <li><a href="landing.html#products">Products</a></li>
+                <li><a href="landing.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero" id="hero">
+        <div class="particles" id="particles"></div>
+        
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+            <div class="hero-badge">🚀 Launching Soon - Early Access Available</div>
+            <h1>Stop Building Startups in the Dark</h1>
+            <p class="hero-subtitle">Meet Your AI Co-founder</p>
+            <p>Every day, brilliant founders with game-changing ideas fail—not because their vision was wrong, but because they didn't know the next step. Adarsh One AI eliminates the guesswork, giving you AI-powered guidance to validate, build, and scale your startup like a seasoned entrepreneur.</p>
+            
+            <div class="cta-section">
+                <a href="#waitlist" class="waitlist-button">Join the Waitlist - It's Free</a>
+                <p class="early-access-note">Be among the first 1000 founders to get early access</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROBLEM SECTION ===== -->
+    <section class="section" id="problem">
+        <h2 class="section-title" data-aos="fade-up">The Brutal Reality of Building a Startup</h2>
+        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">
+            90% of startups fail. Most could have been saved with the right guidance at the right time.
+        </p>
+        
+        <div class="problem-grid">
+            <div class="problem-card" data-aos="fade-up" data-aos-delay="200">
+                <i class="fas fa-question-circle"></i>
+                <h3>Lost in the Unknown</h3>
+                <p>You have a great idea, but no clue if anyone actually wants it or how to find out. Market research feels overwhelming and expensive.</p>
+            </div>
+            
+            <div class="problem-card" data-aos="fade-up" data-aos-delay="400">
+                <i class="fas fa-clock"></i>
+                <h3>Wasting Precious Time</h3>
+                <p>Months spent building features nobody asked for. Chasing the wrong metrics. Learning lessons the hard way when time is your scarcest resource.</p>
+            </div>
+            
+            <div class="problem-card" data-aos="fade-up" data-aos-delay="600">
+                <i class="fas fa-map"></i>
+                <h3>No Clear Roadmap</h3>
+                <p>Every day brings new decisions. Which framework should you use? What should you prioritize? You're making it up as you go, hoping for the best.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SOLUTION SECTION ===== -->
+    <section class="section" id="solution">
+        <div class="solution-hero" data-aos="fade-up">
+            <h2>Introducing Adarsh One AI</h2>
+            <p class="section-subtitle">
+                Your AI-powered co-founder that knows exactly what you need to do next—and why.
+            </p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="feature-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <h3>Smart Idea Validation</h3>
+                <p>Don't guess if your idea will work. Our AI analyzes market demand, identifies your ideal customers, and shows you exactly how to validate your concept before you build anything.</p>
+            </div>
+            
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="feature-icon">
+                    <i class="fas fa-route"></i>
+                </div>
+                <h3>Personalized Roadmaps</h3>
+                <p>Get a step-by-step roadmap tailored to your specific startup. Know exactly what to do today, this week, and this month to make real progress toward your goals.</p>
+            </div>
+            
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="600">
+                <div class="feature-icon">
+                    <i class="fas fa-bullseye"></i>
+                </div>
+                <h3>Product-Market Fit Finder</h3>
+                <p>Our AI helps you understand your customers deeply, iterate on your product intelligently, and find that sweet spot where customers can't live without what you're building.</p>
+            </div>
+            
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="800">
+                <div class="feature-icon">
+                    <i class="fas fa-tasks"></i>
+                </div>
+                <h3>Intelligent Task Management</h3>
+                <p>Stop wondering what to prioritize. Our AI learns your business and automatically organizes your tasks by impact, helping you focus on what moves the needle.</p>
+            </div>
+            
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="1000">
+                <div class="feature-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <h3>Startup Framework Library</h3>
+                <p>Access proven frameworks, templates, and strategies used by successful startups. No more reinventing the wheel—learn from those who've done it before.</p>
+            </div>
+            
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="1200">
+                <div class="feature-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3>AI-Powered Insights</h3>
+                <p>Get intelligent recommendations based on your industry, stage, and goals. It's like having a experienced mentor available 24/7 to guide your decisions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== HOW IT WORKS SECTION ===== -->
+    <section class="section" id="how-it-works">
+        <h2 class="section-title" data-aos="fade-up">How It Works</h2>
+        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">
+            From idea to launch in 3 simple steps
+        </p>
+        
+        <div class="steps-container">
+            <div class="step" data-aos="fade-up" data-aos-delay="300">
+                <div class="step-number">1</div>
+                <h3>Tell Us Your Vision</h3>
+                <p>Share your startup idea, goals, and current stage. Our AI analyzes your information and creates your personalized startup profile.</p>
+            </div>
+            
+            <div class="step" data-aos="fade-up" data-aos-delay="500">
+                <div class="step-number">2</div>
+                <h3>Get Your Roadmap</h3>
+                <p>Receive a detailed, step-by-step plan customized for your startup. Every task is prioritized and explained, so you always know why you're doing what you're doing.</p>
+            </div>
+            
+            <div class="step" data-aos="fade-up" data-aos-delay="700">
+                <div class="step-number">3</div>
+                <h3>Execute & Iterate</h3>
+                <p>Follow your roadmap, track your progress, and let our AI adapt your plan as you learn and grow. Continuous guidance for continuous success.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIAL SECTION ===== -->
+    <section class="section" id="testimonial">
+        <div class="testimonial-card" data-aos="fade-up">
+            <div class="testimonial-content">
+                <i class="fas fa-quote-left quote-icon"></i>
+                <p class="testimonial-text">
+                    "This is exactly what I needed when I started my first company. Having an AI co-founder that could guide me through the uncertainty and help me make smarter decisions would have saved me months of wasted effort and thousands of dollars."
+                </p>
+                <p class="testimonial-author">- Sarah Chen, 3x Founder & Startup Advisor</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FINAL CTA SECTION ===== -->
+    <section class="section" id="waitlist">
+        <div class="final-cta" data-aos="fade-up">
+            <div class="final-cta-content">
+                <h2>Ready to Build Smarter?</h2>
+                <p>Join thousands of founders who refuse to build their startup in the dark. Get early access to Adarsh One AI and start building with confidence.</p>
+                
+                <div class="cta-section">
+                    <a href="mailto:help.adarshone@gmail.com?subject=Waitlist%20Registration&body=Hi%20AdarshOne%20Team,%0A%0AI%20would%20like%20to%20join%20the%20waitlist%20for%20Adarsh%20One%20AI.%0A%0AName:%20%0AStartup%20Idea/Stage:%20%0AEmail:%20%0A%0AThanks!" class="waitlist-button">Join the Waitlist Now</a>
+                    <p class="early-access-note">🎯 Limited early access spots available</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer" id="footer">
+        <div class="footer-content">
+            <a href="landing.html" class="back-home" data-aos="fade-up">Back to Homepage</a>
+            <p class="copyright" data-aos="fade-up" data-aos-delay="200">
+                © 2025 AdarshOne. All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <!-- AOS Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <script>
+        // ===== INITIALIZATION =====
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize AOS (Animate On Scroll)
+            AOS.init({
+                duration: 800,
+                easing: 'ease-out',
+                once: true,
+                offset: 100
+            });
+            
+            // Initialize all interactive features
+            initSmoothScrolling();
+            initHeaderScrollEffect();
+            initParticleAnimation();
+            initInteractiveElements();
+        });
+        
+        // ===== SMOOTH SCROLLING NAVIGATION =====
+        function initSmoothScrolling() {
+            const navLinks = document.querySelectorAll('.nav-links a, .waitlist-button[href^="#"]');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    
+                    // Only handle internal links (starting with #)
+                    if (href.startsWith('#') && href !== '#') {
+                        e.preventDefault();
+                        const targetId = href.substring(1);
+                        const targetElement = document.getElementById(targetId);
+                        
+                        if (targetElement) {
+                            const headerHeight = document.querySelector('.header').offsetHeight;
+                            const targetPosition = targetElement.offsetTop - headerHeight;
+                            
+                            window.scrollTo({
+                                top: targetPosition,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+        }
+        
+        // ===== HEADER SCROLL EFFECT =====
+        function initHeaderScrollEffect() {
+            const header = document.getElementById('header');
+            let lastScrollY = window.scrollY;
+            
+            window.addEventListener('scroll', throttle(() => {
+                const currentScrollY = window.scrollY;
+                
+                // Add scrolled class for background effect
+                if (currentScrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+                
+                lastScrollY = currentScrollY;
+            }, 16));
+        }
+        
+        // ===== ANIMATED PARTICLES BACKGROUND =====
+        function initParticleAnimation() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+            
+            // Create particles
+            for (let i = 0; i < particleCount; i++) {
+                createParticle();
+            }
+            
+            function createParticle() {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                // Random size between 2px and 6px
+                const size = Math.random() * 4 + 2;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                
+                // Random horizontal position
+                particle.style.left = Math.random() * 100 + '%';
+                
+                // Random animation duration between 15s and 25s
+                const duration = Math.random() * 10 + 15;
+                particle.style.animationDuration = duration + 's';
+                
+                // Random delay up to 20s
+                const delay = Math.random() * 20;
+                particle.style.animationDelay = delay + 's';
+                
+                particlesContainer.appendChild(particle);
+                
+                // Remove and recreate particle after animation completes
+                setTimeout(() => {
+                    if (particle.parentNode) {
+                        particle.remove();
+                        createParticle();
+                    }
+                }, (duration + delay) * 1000);
+            }
+        }
+        
+        // ===== INTERACTIVE ELEMENTS =====
+        function initInteractiveElements() {
+            // Add subtle animations to feature cards
+            const featureCards = document.querySelectorAll('.feature-card');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationDelay = '0s';
+                        entry.target.classList.add('animate-in');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            featureCards.forEach(card => observer.observe(card));
+            
+            // Enhanced hover effects for CTA buttons
+            const ctaButtons = document.querySelectorAll('.waitlist-button');
+            ctaButtons.forEach(button => {
+                button.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-3px) scale(1.02)';
+                });
+                
+                button.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+            
+            // Add click analytics (you can replace with your analytics)
+            const analyticsElements = document.querySelectorAll('.waitlist-button, .back-home');
+            analyticsElements.forEach(element => {
+                element.addEventListener('click', function() {
+                    // Replace with your analytics tracking
+                    console.log('User interaction:', this.textContent.trim());
+                });
+            });
+        }
+        
+        // ===== PERFORMANCE OPTIMIZATION =====
+        // Throttle function for better performance
+        function throttle(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+        
+        // ===== ACCESSIBILITY ENHANCEMENTS =====
+        // Add keyboard navigation support
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Tab') {
+                document.body.classList.add('keyboard-navigation');
+            }
+        });
+        
+        document.addEventListener('mousedown', function() {
+            document.body.classList.remove('keyboard-navigation');
+        });
+        
+        // ===== LOADING OPTIMIZATION =====
+        window.addEventListener('load', function() {
+            document.body.classList.add('loaded');
+            
+            // Lazy load any heavy content if needed
+            const lazyElements = document.querySelectorAll('[data-lazy]');
+            if (lazyElements.length > 0) {
+                const lazyObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const element = entry.target;
+                            // Implement lazy loading logic here
+                            lazyObserver.unobserve(element);
+                        }
+                    });
+                });
+                
+                lazyElements.forEach(element => lazyObserver.observe(element));
+            }
+        });
+        
+        // ===== SCROLL PROGRESS INDICATOR (Optional) =====
+        function initScrollProgress() {
+            const progressBar = document.createElement('div');
+            progressBar.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 0%;
+                height: 3px;
+                background: linear-gradient(45deg, #6366F1, #8B5CF6);
+                z-index: 9999;
+                transition: width 0.1s ease;
+            `;
+            document.body.appendChild(progressBar);
+            
+            window.addEventListener('scroll', throttle(() => {
+                const scrollTop = window.pageYOffset;
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const scrollPercent = (scrollTop / docHeight) * 100;
+                progressBar.style.width = scrollPercent + '%';
+            }, 16));
+        }
+        
+        // Uncomment the line below to enable scroll progress indicator
+        // initScrollProgress();
+    </script>
+    
+    <!-- Add some CSS for enhanced animations -->
+    <style>
+        .animate-in {
+            animation: slideInUp 0.6s ease-out forwards;
+        }
+        
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .keyboard-navigation *:focus {
+            outline: 2px solid #6366F1 !important;
+            outline-offset: 2px;
+        }
+        
+        .loaded .hero-content {
+            animation: heroEntrance 1.2s ease-out;
+        }
+        
+        @keyframes heroEntrance {
+            0% {
+                opacity: 0;
+                transform: translateY(50px) scale(0.95);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        /* Enhanced mobile responsiveness */
+        @media (max-width: 640px) {
+            .hero-content {
+                padding: 0 1rem;
+            }
+            
+            .features-grid {
+                gap: 1.5rem;
+            }
+            
+            .feature-card {
+                padding: 2rem 1.5rem;
+            }
+            
+            .final-cta {
+                margin: 2rem 1rem;
+                padding: 2.5rem 1.5rem;
+            }
+            
+            .problem-grid {
+                gap: 1.5rem;
+            }
+            
+            .problem-card {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</body>
+</html>
