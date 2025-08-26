@@ -292,11 +292,12 @@
             justify-content: center;
             align-items: center;
             height: 300px;
-            background: linear-gradient(45deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+            background: linear-gradient(45deg, #F8F5F0, #F3EBE0); /* Premium cream color */
             border-radius: 20px;
             border: 1px solid rgba(99, 102, 241, 0.2);
             position: relative;
             overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
         
         .about-visual::before {
@@ -426,6 +427,85 @@
             pointer-events: none;
         }
         
+        /* ===== FOUNDER SECTION ===== */
+        .founder-section {
+            background: linear-gradient(135deg, rgba(17, 24, 39, 0.9) 0%, rgba(31, 41, 55, 0.9) 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-top: 4rem;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .founder-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #6366F1, #8B5CF6, #6366F1);
+        }
+        
+        .founder-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .founder-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .founder-img-placeholder {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #6366F1, #8B5CF6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+            box-shadow: 0 15px 30px rgba(99, 102, 241, 0.3);
+        }
+        
+        .founder-details h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #F9FAFB, #6366F1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .founder-title {
+            color: #8B5CF6;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+        
+        .founder-details p {
+            color: #D1D5DB;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        .founder-quote {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            border-left: 4px solid #6366F1;
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+        }
+        
         /* ===== FOOTER ===== */
         .footer {
             background: rgba(17, 24, 39, 0.9);
@@ -539,6 +619,16 @@
             .about-visual {
                 height: 250px;
             }
+            
+            .founder-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+            
+            .founder-section {
+                padding: 2rem;
+            }
         }
         
         @media (max-width: 480px) {
@@ -571,6 +661,16 @@
                 padding: 12px 25px;
                 font-size: 1rem;
             }
+            
+            .founder-img-placeholder {
+                width: 150px;
+                height: 150px;
+                font-size: 3rem;
+            }
+            
+            .founder-details h3 {
+                font-size: 1.8rem;
+            }
         }
         
         /* ===== SCROLL ANIMATIONS ===== */
@@ -596,6 +696,7 @@
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#products">Products</a></li>
+                <li><a href="#founder">Founder</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="menu-toggle">
@@ -654,11 +755,34 @@
         </div>
     </section>
 
+    <!-- ===== FOUNDER SECTION ===== -->
+    <section class="section" id="founder">
+        <h2 class="section-title" data-aos="fade-up">Our Visionary Leader</h2>
+        <div class="founder-section" data-aos="fade-up" data-aos-delay="200">
+            <div class="founder-content">
+                <div class="founder-image" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="founder-img-placeholder">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+                <div class="founder-details">
+                    <h3>Vedant Thakare</h3>
+                    <div class="founder-title">Founder & CEO</div>
+                    <p>Vedant Thakare is the visionary force behind AdarshOne, driving innovation and excellence in every aspect of our operations. With a profound understanding of technology and its potential to transform lives, Vedant has dedicated himself to building solutions that bridge the gap between human potential and artificial intelligence.</p>
+                    <p>His leadership philosophy centers on ethical innovation, user empowerment, and creating technology that serves humanity. Under his guidance, AdarshOne is positioned to become a leader in intelligent solutions that make a meaningful impact.</p>
+                    <div class="founder-quote">
+                        "Technology should elevate human potential, not replace it. At AdarshOne, we're building the future where AI and human creativity work in harmony to solve the world's most complex challenges."
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ===== FOOTER ===== -->
     <footer class="footer" id="contact">
         <div class="footer-content">
             <div class="social-links" data-aos="fade-up" data-aos-delay="200">
-                <a href="https://www.instagram.com/adarshai.in?igsh=ejgwOTVxMzh3a2Vs" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.instagram.com/adarshone.ai?igsh=ejgwOTVxMzh3a2Vs" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
             </div>
             <p class="privacy-link">Privacy Policy <a href="privacy-policy.html">View Policy</a></p>
             <p class="copyright" data-aos="fade-up" data-aos-delay="400">
