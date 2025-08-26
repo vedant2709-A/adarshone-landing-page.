@@ -68,7 +68,7 @@
         }
         
         .logo-img {
-            height: 90px; /* Adjust based on your logo's proportions */
+            height: 50px;
             width: auto;
         }
         
@@ -112,6 +112,7 @@
             flex-direction: column;
             cursor: pointer;
             gap: 4px;
+            z-index: 1001;
         }
         
         .menu-toggle span {
@@ -119,6 +120,19 @@
             height: 3px;
             background: #F9FAFB;
             transition: all 0.3s ease;
+        }
+        
+        /* Mobile menu active state */
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
         }
         
         /* ===== HERO SECTION ===== */
@@ -131,6 +145,7 @@
             position: relative;
             background: linear-gradient(135deg, #111827 0%, #1F2937 100%);
             overflow: hidden;
+            padding-top: 80px;
         }
         
         /* Animated Background Particles */
@@ -298,9 +313,10 @@
             100% { transform: rotate(360deg); }
         }
         
-        .about-visual i {
-            font-size: 4rem;
-            color: #6366F1;
+        .about-visual img {
+            max-width: 80%;
+            max-height: 80%;
+            object-fit: contain;
             z-index: 2;
             position: relative;
         }
@@ -452,6 +468,22 @@
             box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
         }
         
+        .privacy-link {
+            margin: 1.5rem 0;
+            color: #9CA3AF;
+        }
+        
+        .privacy-link a {
+            color: #6366F1;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .privacy-link a:hover {
+            color: #8B5CF6;
+            text-decoration: underline;
+        }
+        
         .copyright {
             color: #9CA3AF;
             font-size: 0.9rem;
@@ -460,7 +492,23 @@
         /* ===== RESPONSIVE DESIGN ===== */
         @media (max-width: 768px) {
             .nav-links {
-                display: none;
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: rgba(17, 24, 39, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: right 0.3s ease;
+                z-index: 999;
+                gap: 2rem;
+            }
+            
+            .nav-links.active {
+                right: 0;
             }
             
             .menu-toggle {
@@ -483,6 +531,14 @@
             .section {
                 padding: 60px 0;
             }
+            
+            .hero {
+                padding-top: 70px;
+            }
+            
+            .about-visual {
+                height: 250px;
+            }
         }
         
         @media (max-width: 480px) {
@@ -491,7 +547,7 @@
             }
             
             .logo-img {
-                height: 42px; /* Slightly smaller logo on mobile */
+                height: 42px;
             }
             
             .hero-content {
@@ -505,6 +561,15 @@
             
             .product-card {
                 padding: 2rem;
+            }
+            
+            .about-visual {
+                height: 200px;
+            }
+            
+            .cta-button {
+                padding: 12px 25px;
+                font-size: 1rem;
             }
         }
         
@@ -525,7 +590,7 @@
     <header class="header" id="header">
         <nav class="nav">
             <a href="#" class="logo">
-                <!-- Replace with your actual logo path -->
+                <!-- Use a relative path or URL for your logo -->
                 <img src="company.png" alt="AdarshOne Logo" class="logo-img">
             </a>
             <ul class="nav-links">
@@ -562,7 +627,7 @@
                 <p>Adarsh One represents the convergence of innovation and intelligence. We are dedicated to developing cutting-edge solutions that bridge the gap between complex technology and human creativity. Our commitment to excellence drives us to create tools that not only solve today's challenges but anticipate tomorrow's opportunities.</p>
             </div>
             <div class="about-visual" data-aos="fade-left" data-aos-delay="400">
-                <img src="company.png" alt="AI Illustration" style="max-width: 100%; max-height: 100%;">
+                <img src="company.png" alt="AdarshOne Illustration">
             </div>
         </div>
     </section>
@@ -593,9 +658,9 @@
     <footer class="footer" id="contact">
         <div class="footer-content">
             <div class="social-links" data-aos="fade-up" data-aos-delay="200">
-                <a href="https://www.instagram.com/adarshone.ai?igsh=ejgwOTVxMzh3a2Vs" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.instagram.com/adarshai.in?igsh=ejgwOTVxMzh3a2Vs" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
             </div>
-            <p>Privacy Policy <a href="Privacy Policy.txt">View Policy</a></p>
+            <p class="privacy-link">Privacy Policy <a href="privacy-policy.html">View Policy</a></p>
             <p class="copyright" data-aos="fade-up" data-aos-delay="400">
                 © 2025 Adarsh One. All Rights Reserved.
             </p>
@@ -646,6 +711,10 @@
                                 top: targetPosition,
                                 behavior: 'smooth'
                             });
+                            
+                            // Close mobile menu if open
+                            document.querySelector('.nav-links').classList.remove('active');
+                            document.querySelector('.menu-toggle').classList.remove('active');
                         }
                     }
                 });
@@ -655,7 +724,6 @@
         // ===== HEADER SCROLL EFFECT =====
         function initHeaderScrollEffect() {
             const header = document.getElementById('header');
-            let lastScrollY = window.scrollY;
             
             window.addEventListener('scroll', () => {
                 const currentScrollY = window.scrollY;
@@ -666,8 +734,6 @@
                 } else {
                     header.classList.remove('scrolled');
                 }
-                
-                lastScrollY = currentScrollY;
             });
         }
         
@@ -718,12 +784,35 @@
             const menuToggle = document.querySelector('.menu-toggle');
             const navLinks = document.querySelector('.nav-links');
             
-            // Note: This is a basic setup. For a full mobile menu,
-            // you would need additional CSS for the mobile menu overlay
             menuToggle.addEventListener('click', function() {
                 this.classList.toggle('active');
-                // Mobile menu implementation would go here
-                // For now, this is just the toggle button animation
+                navLinks.classList.toggle('active');
+                
+                // Prevent body scrolling when menu is open
+                if (navLinks.classList.contains('active')) {
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            // Close menu when clicking on a link
+            const navItems = document.querySelectorAll('.nav-links a');
+            navItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    menuToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                });
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!navLinks.contains(e.target) && !menuToggle.contains(e.target) && navLinks.classList.contains('active')) {
+                    menuToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
             });
         }
         
@@ -788,6 +877,3 @@
     </script>
 </body>
 </html>
-
-
-
